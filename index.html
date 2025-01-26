@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرح خطوة بخطوة | طريقة عمل فيديو بالذكاء الصناعي</title>
+    <title> شرح خطوة بخطوة | طريقة عمل فيديو بالذكاء الصناعي بل مجان </title>
+    <meta name="description" content="تعلم كيفية عمل فيديو بالذكاء الصناعي خطوة بخطوة. اتبع الخطوات الموضحة لإنشاء فيديوهات احترافية.">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,70 +61,32 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        .whatsapp-button {
+        .navigation {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navigation a {
+            display: block;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .navigation a:hover {
+            background-color: #f4f4f4;
+        }
+        .back-to-top {
+            display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000;
-        }
-        .whatsapp-button a {
-            display: flex;
-            align-items: center;
-            background-color: #25D366;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-        .whatsapp-button a:hover {
-            background-color: #128C7E;
-        }
-        .whatsapp-button img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-        .whatsapp-button span {
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .footer {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-top: 1px solid #ddd;
-            border-radius: 10px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .footer p {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .footer a {
-            display: inline-block;
-            background-color: #25D366;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .footer a:hover {
-            background-color: #128C7E;
-        }
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            z-index: 1000;
             background-color: #25D366;
             color: #fff;
             border: none;
@@ -131,9 +94,36 @@
             padding: 10px;
             cursor: pointer;
             font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        #backToTop:hover {
+        .back-to-top:hover {
             background-color: #128C7E;
+        }
+
+        /* تنسيق النافذة المنبثقة */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            text-align: center;
+            border-radius: 10px;
+        }
+        /* تنسيق الخلفية المعتمة */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
 
         /* تصميم سريع الاستجابة للهواتف */
@@ -154,140 +144,164 @@
             .step p {
                 font-size: 14px;
             }
-            .whatsapp-button a {
-                padding: 8px 16px;
-                font-size: 14px;
+            .navigation {
+                display: none;
             }
-            .whatsapp-button img {
-                width: 25px;
-                height: 25px;
-            }
-            .footer p {
-                font-size: 16px;
-            }
-            .footer a {
-                font-size: 14px;
-                padding: 8px 16px;
+            .back-to-top {
+                bottom: 80px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- النافذة المنبثقة -->
+    <div id="overlay"></div>
+    <div id="popup">
+        <p>   😂 سامحني ياصحبي لازم تشترك في القناه ساعد اخوك يوصل 1000000</p>
+        <p>سيتم تحويلك خلال <span id="countdown">3</span> ثوانٍ...</p>
+    </div>
+
     <div class="header">
         <h1>شرح خطوة بخطوة</h1>
         <p>طريقة عمل فيديو بالذكاء الصناعي</p>
     </div>
 
+    <!-- قائمة التنقل -->
+    <div class="navigation">
+        <a href="#step1">الخطوة الأولى</a>
+        <a href="#step2">الخطوة الثانية</a>
+        <a href="#step3">الخطوة الثالثة</a>
+        <a href="#step4">الخطوة الرابعة</a>
+        <a href="#step5">الخطوة الخامسة</a>
+        <a href="#step6">الخطوة السادسة</a>
+        <a href="#step7">الخطوة السابعة</a>
+        <a href="#step8">الخطوة الثامنة</a>
+        <a href="#step9">الخطوة التاسعة</a>
+    </div>
+
     <!-- الخطوة الأولى -->
-    <div class="step">
+    <div class="step" id="step1">
         <h2>الخطوة الأولى: كتابة السكربت</h2>
-        <p>في هذه الخطوة، سنتعلم كيفية كتابة سكربت بسيط باستخدام لغة البرمجة. تأكد من مشاهدة الفيديو التالي لفهم الخطوات بشكل عملي.</p>
-        <a href="https://youtu.be/nCOHq64KzKc?si=UBjxQMJVgS0Rf4xc" target="_blank">
-            <img src="https://img.youtube.com/vi/nCOHq64KzKc/mqdefault.jpg" alt="فيديو كتابة السكربت">
+        <p>في هذه الخطوة، احتاج منك فقط تعلم كتابت السكربت لفهم الخطوات بشكل عملي.</p>
+        <a href="https://www.youtube.com/watch?si=jcX21QxrhM9UB7Sf&v=lpv-dw-dNKY&feature=youtu.be" target="_blank">
+            <img src="https://img.youtube.com/vi/lpv-dw-dNKY/mqdefault.jpg" alt="فيديو كتابة السكربت">
+            <p>فيديو يوضح كيفية كتابة سكربت بشكل بسيط</p>
         </a>
     </div>
 
     <!-- الخطوة الثانية -->
-    <div class="step">
+    <div class="step" id="step2">
         <h2>الخطوة الثانية: موقع تحويل النص إلى صوت</h2>
-        <p>في هذه الخطوة، سنتعرف على كيفية استخدام موقع لتحويل النص إلى صوت. شاهد الفيديو التالي لمعرفة الخطوات بالتفصيل.</p>
+        <p>الخطوه دي بتحول ال السكربت الي صوت احترافي ركز في الشرح  .</p>
         <a href="https://youtu.be/ouaWZgEBt_s?si=CXn8J_oWi4s_0iHx" target="_blank">
             <img src="https://img.youtube.com/vi/ouaWZgEBt_s/mqdefault.jpg" alt="فيديو تحويل النص إلى صوت">
+            <p>فيديو يوضح كيفية تحويل النص إلى صوت</p>
         </a>
     </div>
 
     <!-- الخطوة الثالثة -->
-    <div class="step">
+    <div class="step" id="step3">
         <h2>الخطوة الثالثة: تحويل السكربت إلى مشاهد</h2>
-        <p>في هذه الخطوة، سنتعلم كيفية تحويل السكربت إلى مشاهد باستخدام أدوات متخصصة. شاهد الفيديو التالي لفهم العملية بالتفصيل.</p>
+        <p>في هذه الخطوة، احتاج منك ان تقوم بتحويل السكربت الي مشاهد  شاهد الفيديو التالي لفهم العملية بالتفصيل.</p>
         <a href="https://youtu.be/RZuSVRNC5gI?si=Rdqh9ZBDfyMqZtin" target="_blank">
             <img src="https://img.youtube.com/vi/RZuSVRNC5gI/mqdefault.jpg" alt="فيديو تحويل السكربت إلى مشاهد">
+            <p>فيديو يوضح كيفية تحويل السكربت إلى مشاهد</p>
         </a>
     </div>
 
     <!-- الخطوة الرابعة -->
-    <div class="step">
+    <div class="step" id="step4">
         <h2>الخطوة الرابعة: إنشاء مشاهد (يعمل على أجهزة الكمبيوتر فقط)</h2>
         <p>في هذه الخطوة، سنتعرف على موقع لإنشاء مشاهد احترافية، ولكن للأسف هذا الموقع يعمل فقط على أجهزة الكمبيوتر (PC). شاهد الفيديو التالي لمعرفة كيفية استخدامه.</p>
         <a href="https://youtu.be/TSLV5hjtzUM?si=I6OrO3_5raqidTjO" target="_blank">
             <img src="https://img.youtube.com/vi/TSLV5hjtzUM/mqdefault.jpg" alt="فيديو إنشاء مشاهد">
+            <p>فيديو يوضح كيفية إنشاء مشاهد احترافية</p>
         </a>
     </div>
 
     <!-- الخطوة الخامسة -->
-    <div class="step">
+    <div class="step" id="step5">
         <h2>الخطوة الخامسة: تحريك المشاهد</h2>
-        <p>في هذه الخطوة، سنتعرف على كيفية تحريك المشاهد باستخدام أدوات متخصصة. <strong>بص يخويه، انا شغلي بيكون بس باخد المشاهد وبعده بروح علي الموقع التحريك علشان اقدر اعمل شغل عالي وكمان كلو مجاني بل كامل.</strong></p>
+        <p>. <strong>بص يخويه،الخطوه دي مهما  انا شغلي بيكون بس باخد الصور الي انشئتها  وبعده بروح علي الموقع التحريك علشان اقدر اعمل شغل بكولتي عالي  وكمان كلو مجاني بل كامل.</strong></p>
         <!-- تم حذف الصورة هنا -->
     </div>
 
     <!-- الخطوة السادسة -->
-    <div class="step">
+    <div class="step" id="step6">
         <h2>الخطوة السادسة: تحريك الصور (أفضل وأسرع موقع)</h2>
-        <p>في هذه الخطوة، سنتعرف على أفضل وأسرع موقع لتحريك الصور. هذا الموقع ساعدني كثيرًا في إنجاز العمل بجودة عالية وبسرعة. شاهد الفيديو التالي لمعرفة كيفية استخدامه.</p>
+        <p>في هذه الخطوة، سنتعرف على أفضل وأسرع موقع لتحريك الصور. . شاهد الفيديو التالي لمعرفة كيفية استخدامه.</p>
         <a href="https://youtu.be/ckLMh75FNNA?si=54EyAnszwG7LKyjA" target="_blank">
             <img src="https://img.youtube.com/vi/ckLMh75FNNA/mqdefault.jpg" alt="فيديو تحريك الصور">
+            <p>فيديو يوضح كيفية تحريك الصور بجودة عالية</p>
         </a>
     </div>
 
     <!-- الخطوة السابعة -->
-    <div class="step">
+    <div class="step" id="step7">
         <h2>الخطوة السابعة: المونتاج النهائي</h2>
-        <p>في هذه الخطوة، سنتعرف على كيفية تجميع الشكل النهائي بعد الانتهاء من كل الخطوات السابقة. <strong>بتجمع الشكل بتاعك كلو بعد ما بتخلص من كل الخطوات، بعدين بيجي دور المونتاج بكاب كات أو أي برنامج انت شغال عليه.</strong></p>
+        <p>في هذه الخطوة، سنتعرف على كيفية تجميع الشكل النهائي بعد الانتهاء من كل الخطوات السابقة. <strong>دي طبعا الخطوه الخيثر وهيا المونتاج ولو مش عارف انا سيبك  شرح كامل .</strong></p>
         <a href="https://youtu.be/B4L7MW-nkrg?si=eiZv_MBxOG6v4RC9" target="_blank">
             <img src="https://img.youtube.com/vi/B4L7MW-nkrg/mqdefault.jpg" alt="فيديو المونتاج النهائي">
+            <p>فيديو يوضح كيفية تجميع الشكل النهائي</p>
         </a>
     </div>
 
     <!-- الخطوة الثامنة -->
-    <div class="step">
+    <div class="step" id="step8">
         <h2>الخطوة الثامنة: تصدير نتائج البحث (الأهم)</h2>
         <p>في هذه الخطوة، سنتعرف على كيفية تصدير نتائج البحث لضمان أن الفيديوهات الخاصة بك تكون عليها بحث عالي. هذه الخطوة تعتبر الأهم لأنها تساعد في زيادة وصول الفيديوهات إلى الجمهور المستهدف.</p>
         <a href="https://youtu.be/dVmUYtN3w1w?si=qlH3nteBuE4fhWT8" target="_blank">
             <img src="https://img.youtube.com/vi/dVmUYtN3w1w/mqdefault.jpg" alt="فيديو تصدير نتائج البحث">
+            <p>فيديو يوضح كيفية تصدير نتائج البحث</p>
         </a>
     </div>
 
     <!-- الخطوة التاسعة -->
-    <div class="step">
+    <div class="step" id="step9">
         <h2>الخطوة التاسعة: السيو (SEO) لتصدر نتائج البحث</h2>
         <p>في هذه الخطوة، سنتعرف على كيفية تحسين الفيديوهات لمحركات البحث (SEO) لضمان تصدرها في نتائج البحث. هذا الفيديو مهم جدًا ويجب أن تسمعه بعناية لفهم كيفية زيادة وصول الفيديوهات الخاصة بك.</p>
         <a href="https://youtu.be/OOHkDKbMuaY?si=tkcwLznyXNyRoxpz" target="_blank">
             <img src="https://img.youtube.com/vi/OOHkDKbMuaY/mqdefault.jpg" alt="فيديو السيو (SEO)">
-        </a>
-    </div>
-
-    <!-- قسم الواتساب في الأسفل -->
-    <div class="footer">
-        <p>حبايب، أنا غرضي أساعد كل واحد. لو في أي خطوة مش فاهمها، تقدر تكلمني وهساعدك بإذن الله.</p>
-        <a href="https://wa.me/201104780394" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" style="width: 20px; height: 20px; margin-right: 8px;">
-            تواصل معي
-        </a>
-    </div>
-
-    <!-- زر واتساب عائم -->
-    <div class="whatsapp-button">
-        <a href="https://wa.me/201104780394" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب">
-            <span>تواصل معي</span>
+            <p>فيديو يوضح كيفية تحسين الفيديوهات لمحركات البحث</p>
         </a>
     </div>
 
     <!-- زر العودة إلى الأعلى -->
-    <button id="backToTop" title="العودة إلى الأعلى">↑</button>
+    <button class="back-to-top" title="العودة إلى الأعلى">↑</button>
     <script>
         window.onscroll = function() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("backToTop").style.display = "block";
+                document.querySelector(".back-to-top").style.display = "block";
             } else {
-                document.getElementById("backToTop").style.display = "none";
+                document.querySelector(".back-to-top").style.display = "none";
             }
         };
-        document.getElementById("backToTop").onclick = function() {
+        document.querySelector(".back-to-top").onclick = function() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         };
+
+        // التحقق من أن هذه هي الزيارة الأولى
+        if (!localStorage.getItem('visited')) {
+            // عرض النافذة المنبثقة والخلفية المعتمة
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+
+            // بدء العداد
+            let countdown = 3;
+            const countdownElement = document.getElementById('countdown');
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.href = 'https://youtube.com/@hedota?si=Dheci_1H_7krw8Gu';
+                }
+            }, 1000);
+
+            // تعيين علامة أن المستخدم قد زار الموقع
+            localStorage.setItem('visited', 'true');
+        }
     </script>
 </body>
 </html>
